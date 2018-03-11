@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>My Shopping List</title>
+</head>
+<body>
+
+<h1>My shopping list</h1>
+<label for="input">Enter a new item:</label>
+<input id="input" type="text">
+<button>Add item</button>
+
+<script>
+
+var addBtn = document.querySelector('button');
+var input = document.querySelector('input');
+input.focus();
+
+var ul = document.createElement('ul');
+document.body.appendChild(ul);
+
+addBtn.onclick = function() {
+	if(input.value !== '') {
+		var newItem = document.createElement('li');
+		newItem.textContent = input.value;
+		newItem.style.margin = '20px';
+		ul.appendChild(newItem);
+		
+		var newDelBtn = document.createElement('button');
+		newDelBtn.textContent = 'Delete';
+		newDelBtn.style.marginLeft = '30px';
+		newDelBtn.onclick = function() {deleteItem(item=newItem);};
+		newItem.appendChild(newDelBtn);
+	}
+
+	input.value = '';
+	input.focus();
+}
+
+function deleteItem(newItem) { // or item
+	ul.removeChild(newItem); // or item
+}
+
+</script>
+
+</body>
+</html>

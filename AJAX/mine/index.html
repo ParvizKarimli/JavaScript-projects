@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Houses & Apartments</title>
+<style>
+div {
+	margin: 50px;
+}
+
+img {
+	margin: 5px;
+	border: 1px solid green;
+}
+</style>
+</head>
+<body>
+
+<label for="options">Choose type:</label>
+<select id="options">
+  <option>---Select---</option>
+  <option>Houses</option>
+  <option>Apartments</option>
+</select>
+
+<div></div>
+
+<script>
+
+var select = document.querySelector('select');
+var div = document.querySelector('div');
+
+select.onchange = function() {
+	var div = document.querySelector('div');
+	div.innerHTML = '';
+	
+	var url = 'estates.json';
+	var req = new XMLHttpRequest();
+	req.open('GET', url);
+	req.responseType = 'json';
+	req.send();
+	
+	req.onload = function() {
+		var jsonObj = req.response;
+		
+		if(select.value === 'Houses') {
+			for(var i = 0; i < jsonObj.houses.length; i++) {
+				var newImg = document.createElement('img');
+				newImg.src = 'houses/' + jsonObj.houses[i];
+				newImg.style.width = '300px';
+				newImg.style.height = '300px';
+				div.appendChild(newImg);
+			}
+		} else if(select.value === 'Apartments') {
+			for(var i = 0; i < jsonObj.apartments.length; i++) {
+				var newImg = document.createElement('img');
+				newImg.src = 'apartments/' + jsonObj.apartments[i];
+				newImg.style.width = '300px';
+				newImg.style.height = '300px';
+				div.appendChild(newImg);
+			}
+		} else {
+			for(var i = 0; i < jsonObj.houses.length; i++) {
+				var newImg = document.createElement('img');
+				newImg.src = 'houses/' + jsonObj.houses[i];
+				newImg.style.width = '300px';
+				newImg.style.height = '300px';
+				div.appendChild(newImg);
+			}
+			for(var i = 0; i < jsonObj.apartments.length; i++) {
+				var newImg = document.createElement('img');
+				newImg.src = 'apartments/' + jsonObj.apartments[i];
+				newImg.style.width = '300px';
+				newImg.style.height = '300px';
+				div.appendChild(newImg);
+			}
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

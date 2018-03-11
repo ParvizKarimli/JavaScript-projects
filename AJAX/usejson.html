@@ -1,0 +1,13 @@
+<script>
+var requestURL = 'myjson.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+	var jsonObj = request.response;
+	alert('Name: ' + jsonObj.name.first + ' ' + jsonObj.name.last + 
+	'; Age: ' + jsonObj.age + '; Interests: ' + 
+	jsonObj.interests[0] + ', ' + jsonObj.interests[1] + ', ' + jsonObj.interests[2]);
+}
+</script>

@@ -1,0 +1,7 @@
+{
+	"name" : {
+				"first": "Parviz", "last": "Karimli"
+			}, 
+	"age" : 22, 
+	"interests" : ["video games", "biking", "staying alone"]
+}
