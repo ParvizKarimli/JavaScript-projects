@@ -1,0 +1,23 @@
+html {
+	background-color: #eee;
+}
+
+img#profilepic {
+	margin: 1% 1%;
+	border-radius: 5%;
+	transition: 1s;
+	box-shadow: 2px 2px 4px blue, 2px 2px 4px red;
+	float: left;
+	display: block;
+}
+
+img#profilepic:hover {
+	height: 35%;
+	width: 30%;
+}
+
+p#name {
+	float: left;
+	color: blue;
+	font-size: 26px;
+}
